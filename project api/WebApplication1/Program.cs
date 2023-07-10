@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using WebApplication1;
 using WebApplication1.Services;
+using WebApplication1.Services.CollectionService;
 using WebApplication1.Services.UserServices;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ options =>
 });
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<CollectionService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {

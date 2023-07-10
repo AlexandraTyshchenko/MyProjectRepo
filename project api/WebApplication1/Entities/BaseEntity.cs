@@ -1,7 +1,12 @@
-﻿namespace WebApplication1.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication1.Entities
 {
     public class BaseEntity
     {
-        public Guid Id { get; set; }=new Guid();
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
     }
 }
